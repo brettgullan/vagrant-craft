@@ -1,7 +1,8 @@
 Vagrant + Craft CMS
 ===================
 
-A puppet provisioned Vagrant development server for Craft CMS projects. It uses the standard Vagrant Ubuntu Precise base box `precise64.box`.
+A puppet provisioned Vagrant development server for Craft CMS projects. 
+It uses the standard Vagrant Ubuntu Trusty64 base box `ubuntu/trusty64.box`.
 
 **Please note: This is intended for development purposes only.**
 
@@ -11,7 +12,7 @@ What do you get?
 The latest versions of:
 
 * Nginx (ppa:nginx/stable)
-* PHP-FPM (ppa:ondrej/php5)
+* PHP-FPM (ppa:ondrej/php7)
 * phpMyAdmin
 * MySQL
 
@@ -24,7 +25,7 @@ First you need to install [Virtualbox](https://www.virtualbox.org/) and [Vagrant
 
 1. Clone this repo into a `vagrant` folder at the root of your project.  So it's sitting alongside your `public`, `craft`, etc. folders:
 
-		git clone https://github.com/enovatedesign/vagrant-craft.git vagrant
+		git clone https://github.com/brettgullan/vagrant-craft.git vagrant
 
 2. Grab the sub-modules:
 
