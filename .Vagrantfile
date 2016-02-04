@@ -7,14 +7,21 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise64"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64"
+  config.vm.hostname = "craft"
 
   if Vagrant.has_plugin?("vagrant-cachier")
     # Configure cached packages to be shared between instances of the same base box.
     # More info on http://fgrehm.viewdocs.io/vagrant-cachier/usage
     config.cache.scope = :box
   end
+
+  # Host manager
+#  config.hostmanager.enabled = true
+#  config.hostmanager.manage_host = true
+
+#  config.vm.provision :hostmanager
 
   config.vm.provider "virtualbox" do |v|
     #v.gui = true
@@ -30,7 +37,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "public_network"
   #config.vm.network "private_network", ip: "192.168.50.100"
 
+
+  # PROVISIONING
+  
   # Enable provisioning with Puppet
+  config.vm.provision :shell, :path => 'puppet/bootstrap/bootstrap.sh'
+  
+  # Perform Puppet-based provisioning and configuration
   config.vm.provision "puppet" do |puppet|
     puppet.manifests_path = "vagrant/puppet/manifests"
     puppet.module_path = 'vagrant/puppet/modules'
@@ -38,7 +51,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.options = ['--verbose']
   end
 
-  # Shared folders
+
+  # SHARED FOLDERS
 
   ### Using the default share approach
 
