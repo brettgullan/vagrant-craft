@@ -41,7 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # PROVISIONING
   
   # Enable provisioning with Puppet
-  config.vm.provision :shell, :path => 'puppet/bootstrap/bootstrap.sh'
+  config.vm.provision :shell, :path => 'vagrant/puppet/bootstrap/bootstrap.sh'
   
   # Perform Puppet-based provisioning and configuration
   config.vm.provision "puppet" do |puppet|
