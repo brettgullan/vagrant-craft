@@ -51,6 +51,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.options = ['--verbose']
   end
 
+  # Update Composer On Every Provision
+  config.vm.provision "shell" do |s|
+  	s.inline = "/usr/local/bin/composer self-update"
+  end
+
 
   # SHARED FOLDERS
 
