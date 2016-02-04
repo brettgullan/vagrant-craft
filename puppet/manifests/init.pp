@@ -124,5 +124,13 @@ Exec["apt-get update"] -> Package <| |>
 include system-update
 include dev-packages
 include nginx-setup
-include php-setup
+include php5-fpm-setup
 include phpmyadmin-setup
+
+# -----------------------------------------------------------------
+# Oddments
+# -----------------------------------------------------------------
+
+include curl
+include composer
+
