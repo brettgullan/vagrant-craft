@@ -45,6 +45,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   # Perform Puppet-based provisioning and configuration
   config.vm.provision "puppet" do |puppet|
+	puppet.hiera_config_path = "vagrant/puppet/hiera.yaml"
     puppet.manifests_path = "vagrant/puppet/manifests"
     puppet.module_path = 'vagrant/puppet/modules'
     puppet.manifest_file  = "init.pp"
