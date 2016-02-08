@@ -42,12 +42,18 @@ Exec["apt-get update"] -> Package <| |>
 include system-update
 include dev-packages
 
+## PHP5/Nginx Setup
+# This is the original vagrant-craft install
 #include nginx-setup
 #include php5-fpm-setup
 #include phpmyadmin-setup
 
+
+## PHP/Apache setup
+# This is adapted from a range of other sources to provide LAMP functionality
 include apache-setup
-include php5-setup
+#include php5-setup
+include php7-setup
 
 
 # -----------------------------------------------------------------
