@@ -10,11 +10,12 @@ class system-update {
         command => 'apt-get update',
     }
 
-    $sysPackages = [ 'build-essential' ]
+    $sysPackages = [ 'software-properties-common', 'python-software-properties', 'build-essential' ]
     package { $sysPackages:
         ensure => 'installed',
         require => Exec['apt-get update'],
     }
+
 }
 
 class dev-packages {
