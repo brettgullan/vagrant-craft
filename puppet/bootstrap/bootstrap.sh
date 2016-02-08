@@ -12,8 +12,8 @@ fi
 
 # Download and register the Puppet Labs package.
 echo '- Registering the Puppet package...'
-wget -q http://apt.puppetlabs.com/puppetlabs-release-precise.deb
-dpkg -i puppetlabs-release-precise.deb >/dev/null
+wget -q https://apt.puppetlabs.com/puppetlabs-release-pc1-trusty.deb
+dpkg -i puppetlabs-release-pc1-trusty.deb >/dev/null
 
 # Update the packages.
 echo '- Updating the packages...'
@@ -25,7 +25,7 @@ apt-get install -y puppet-common >/dev/null
 
 # Tidy up.
 echo '- Tidying up...'
-rm puppetlabs-release-precise.deb
+rm puppetlabs-release-pc1-trusty.deb
 
 # All done.
 echo '- VM is bootstrapped and ready to go...'
