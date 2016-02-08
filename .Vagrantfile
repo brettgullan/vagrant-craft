@@ -30,12 +30,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Create a forwarded port mapping which allows access to a specific port
-  config.vm.network "forwarded_port", guest: 80, host: 8080     # Web Server
-  config.vm.network "forwarded_port", guest: 9000, host: 9000   # phpMyAdmin
+#  config.vm.network "forwarded_port", guest: 80, host: 8080     # Web Server
+#  config.vm.network "forwarded_port", guest: 9000, host: 9000   # phpMyAdmin
 
   # Use a public network so other devices on the network can access it
   config.vm.network "public_network"
-  #config.vm.network "private_network", ip: "192.168.50.100"
+  config.vm.network "private_network", ip: "192.168.11.10"
 
 
   # PROVISIONING
