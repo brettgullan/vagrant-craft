@@ -11,6 +11,7 @@ What do you get?
 
 The latest versions of:
 
+* Apache
 * Nginx (ppa:nginx/stable)
 * PHP-FPM (ppa:ondrej/php7)
 * phpMyAdmin
@@ -35,13 +36,13 @@ First you need to install [Virtualbox](https://www.virtualbox.org/) and [Vagrant
 
 		mkdir logs
 
-4. Move the Vagrantfile to the root of your project:
+4. Symlink the Vagrantfile to the root of your project:
 
-		mv .Vagrantfile ../Vagrantfile
+		cd .. && ln -s ./vagrant/.Vagrantfile Vagrantfile
 
 5. Install the vagrant-cachier plug-in (this makes provisioning boxes from scratch way faster):
 
-		cd .. && vagrant plugin install vagrant-cachier
+		vagrant plugin install vagrant-cachier
 
 6. Get started (first run this takes 10 minutes after that about 3 minutes - thanks to `vagrant-cachier`:
 
@@ -72,7 +73,7 @@ Important notes and troubleshooting
 
 4. In the Vagrantfile on lines 21 and 22 you may need to adjust the memory and CPU settings for the VM.
 
-5. Using the `precise64.box` assumes you are running a 64-bit OS. I haven't tried but I assume you can switch to `precise32.box` if necessary (lines 10 and 11 of the Vagrantfile).
+5. Using the `trusty64.box` assumes you are running a 64-bit OS.
 
 6. You can un-comment line 20 in the Vagrantfile so that Virtualbox will launch a GUI so you can see the console for the VM as it launches for troubleshooting.
 
